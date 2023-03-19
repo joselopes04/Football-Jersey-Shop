@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .py-navbar-item{
+        @apply py-5
+    }
+    .py-navbar-item{
+        @apply px-3
+    }
+}
+
+/* RUN the tailwind: npm run dev */
