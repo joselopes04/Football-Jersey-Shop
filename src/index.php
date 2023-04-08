@@ -11,10 +11,10 @@
     <script src="main.js"></script>
 </head>
 <?php include 'navbar.html' ?>
-<body>
+<body class="bg-gray-50 dark:bg-gray-800">
   
-    <h1 class="text-3xl">Football Jersey Shop</h1>
-    <p>From the pitch to the stands, Football Jersey Shop has you covered</p>
+    <h1 class="text-3xl dark:text-white">Football Jersey Shop</h1>
+    <p class="dark:text-white">From the pitch to the stands, Football Jersey Shop has you covered</p>
 </body>
 <?php include 'footer.html' ?> 
 </html>
