@@ -60,7 +60,7 @@
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Club:</span>
-                    <span class="dark:text-white"></span>
+                    <span class="dark:text-white">Benfica</span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Season:</span>
