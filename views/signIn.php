@@ -6,22 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Football Jersey Shop</title>
-  <link rel="icon" type="image/x-icon" href="../images/FJSlogo.png">
-  <link rel="stylesheet" href="../dist/output.css">
-  <script src="main.js"></script>
+  <link rel="icon" type="image/x-icon" href="images/FJSlogo.png">
+  <link rel="stylesheet" href="dist/output.css">
+  <script src="views/main.js"></script>
 </head>
 
-<?php include 'navbar.html' ?>
+<?php include 'navbar.php' ?>
 
 <body>
   <section class="bg-gray-50 dark:bg-gray-800 min-h-screen flex items-center justify-center">
     <!-- login container -->
     <div class="bg-gray-100 dark:bg-gray-900 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
-      <!-- form -->
       <div class="md:w-1/2 px-8 md:px-16">
         <h2 class="font-bold text-2xl text-blue-800 dark:text-white">Login</h2>
         <p class="text-xs mt-4 text-blue-800 dark:text-white">If you are already a member, please log in.</p>
-
+        <!-- form -->
         <form id="loginForm" action="" method="post" class="flex flex-col gap-4">
           <div id="loginEmailDiv">
             <input id="loginEmail" class="p-2 mt-8 rounded-xl border w-full focus:outline-none focus:ring focus:border-blue-800" type="email" name="email" placeholder="Email">
@@ -42,7 +41,7 @@
           </div>
           <button class="bg-blue-800 rounded-xl text-white py-2 hover:scale-105 duration-300">Login</button>
         </form>
-
+        <!-- form end-->
         <div class="mt-6 grid grid-cols-3 items-center text-gray-400">
           <hr class="border-gray-400">
           <p class="text-center text-sm">OR</p>
@@ -65,18 +64,19 @@
 
         <div class="mt-3 text-xs flex justify-between items-center text-blue-800 ">
           <p class="dark:text-white">Don't have an account?</p>
-          <a href="register.php"><button class="py-2 px-3 bg-white border rounded-xl hover:scale-110 duration-300">Join the club</button></a>
+          <a href="<?php echo route("register"); ?>"><button class="py-2 px-3 bg-white border rounded-xl hover:scale-110 duration-300">Join the club</button></a>
         </div>
       </div>
 
       <!-- image -->
       <div class="md:block hidden w-1/2">
-        <img class="rounded-2xl" src="../images/footballFiled.jpg">
+        <img class="rounded-2xl" src="images/footballFiled.jpg">
       </div>
     </div>
+    <!-- login container end-->
   </section>
 </body>
 
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>
 
 </html>

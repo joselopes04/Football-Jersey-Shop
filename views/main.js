@@ -1,12 +1,15 @@
+//On click login form
 document.addEventListener("DOMContentLoaded", () => {
+
   const loginForm = document.getElementById("loginForm");
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      validateLoginInputs();
+      validateLoginInsputs();
     });
   }
 
+  //On click registration form
   const registrationForm = document.getElementById("registrationForm");
   if (registrationForm) {
     registrationForm.addEventListener("submit", (e) => {
@@ -15,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  //Set input errors
   const setError = (element, message) => {
     const errorDisplay = element.querySelector('.error');
     const inputField = element.querySelector('.p-2');
@@ -25,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     errorDisplay.innerText = message;
   }
 
+  //Remove input errors
   const unsetError = (element) => {
     const errorDisplay = element.querySelector('.error');
     const inputField = element.querySelector('.p-2');
@@ -34,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     errorDisplay.innerText = "";
   }
 
+  //Set input success
   const setSuccess = (element) => {
     const errorDisplay = element.querySelector('.error');
     errorDisplay.innerText = "";
@@ -44,12 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Validate Login
   const validateLoginInputs = () => {
+    //textboxes
     const email = document.getElementById("loginEmail");
     const password = document.getElementById("passwordLogin");
-    console.log("Password: ", password);
+    //values
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
+    //Error divs
     const emailDiv = document.getElementById("loginEmailDiv");
     const passwordDiv = document.getElementById("loginPassowrdDiv");
 
@@ -65,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Validate Register
   const validateRegisterInputs = () => {
     //textboxes
     const rfirstName = document.getElementById("registrationFirstName");
@@ -154,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 });
 
+//Change password Visibility
 function togglePasswordVisibility() {
   let passwordField = document.getElementById('resgistrationPassword');
   if (!passwordField) {
@@ -167,8 +178,56 @@ function togglePasswordVisibility() {
   toggleBtnVisible.classList.toggle('hidden');
 }
 
+//Hamburguer menu
 function hamburguerClicked() {
   var mobileMenu = document.getElementById("mobileMenu");
   mobileMenu.classList.toggle("hidden");
   mobileMenu.classList.toggle("block");
 }
+
+// Theme Vars
+const userTheme = localStorage.getItem("theme");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+let moonIcon, sunIcon;
+
+window.onload = function() {
+  moonIcon = document.querySelector('#moon');
+  sunIcon = document.querySelector('#sun');
+  themeCheck();
+}
+
+const themeCheck = () => {
+  if (userTheme == 'dark' || (!userTheme && systemTheme)) {
+    document.documentElement.classList.add('dark');
+    moonIcon.classList.add("hidden");
+    return;
+  }
+  sunIcon.classList.add("hidden");
+}
+
+// Manual Theme Switch
+const themeSwitch = () => {
+  if (document.documentElement.classList.contains('dark')) {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+  } else {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  }
+  iconToogle();
+}
+
+// Icon Toggling
+const iconToogle = () => {
+  sunIcon.classList.toggle("hidden");
+  moonIcon.classList.toggle("hidden")
+}
+
+//Toogle button
+document.addEventListener('DOMContentLoaded', function () {
+  const darkToogle = document.querySelector('.toogle-dark');
+  darkToogle.addEventListener('click', (e) => {
+    themeSwitch();
+  });
+});

@@ -6,24 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Jersey Shop</title>
-    <link rel="icon" type="image/x-icon" href="../images/FJSlogo.png">
-    <link rel="stylesheet" href="../dist/output.css">
-    <script src="main.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/FJSlogo.png">
+    <link rel="stylesheet" href="dist/output.css">
+    <script src="views/main.js"></script>
 </head>
-<?php include 'navbar.html' ?>
+<?php include 'navbar.php' ?>
 
 <body class="bg-gray-50 dark:bg-gray-800">
     <div class="ml-5 my-5">
         <div class="container md:grid md:grid-cols-2 gap-4 mb-2">
             <!-- Product Image -->
             <div>
-                <img src="../images/jerseys/benfica2223.png" alt="Product Image" class="mx-auto w-5/6">
+                <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="Product Image" class="mx-auto w-5/6">
                 <div class="grid grid-cols-5 gap-4 mt-4">
-                    <img src="../images/jerseys/benfica2223.png" alt="" class="w-full cursor-pointer border border-blue-800">
-                    <img src="../images/jerseys/benfica2223.png" alt="" class="w-full cursor-pointer border">
-                    <img src="../images/jerseys/benfica2223.png" alt="" class="w-full cursor-pointer border">
-                    <img src="../images/jerseys/benfica2223.png" alt="" class="w-full cursor-pointer border">
-                    <img src="../images/jerseys/benfica2223.png" alt="" class="w-full cursor-pointer border">
+                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border border-blue-800">
+                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border">
+                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border">
+                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border">
+                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border">
                 </div>
             </div>
             <!-- Product Image End -->
@@ -144,6 +144,6 @@
 
     </div>
 </body>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>
 
 </html>

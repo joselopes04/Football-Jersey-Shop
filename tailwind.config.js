@@ -1,5 +1,6 @@
 module.exports = {
-  content: ["./src/**/*.{html,js,php}"],
+  content: ["./views/**/*.{html,js,php}"],
+  darkMode: 'class',
   theme: {
     extend: {},
   },
