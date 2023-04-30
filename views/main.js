@@ -1,168 +1,207 @@
 //On click login form
-document.addEventListener("DOMContentLoaded", () => {
 
-  const loginForm = document.getElementById("loginForm");
-  if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      validateLoginInsputs();
-    });
+//Set input errors
+const setError = (element, message) => {
+  const errorDisplay = element.querySelector('.error');
+  const inputField = element.querySelector('.p-2');
+  if (inputField.classList.contains('border')) {
+    inputField.classList.remove('border-2', 'border-green-800');
+    inputField.classList.add('border-2', 'border-red-800');
   }
+  errorDisplay.innerText = message;
+}
 
-  //On click registration form
-  const registrationForm = document.getElementById("registrationForm");
-  if (registrationForm) {
-    registrationForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      validateRegisterInputs();
-    });
+//Remove input errors
+const unsetError = (element) => {
+  const errorDisplay = element.querySelector('.error');
+  const inputField = element.querySelector('.p-2');
+  if (inputField.classList.contains('border')) {
+    inputField.classList.remove('border-2', 'border-red-800');
   }
+  errorDisplay.innerText = "";
+}
 
-  //Set input errors
-  const setError = (element, message) => {
-    const errorDisplay = element.querySelector('.error');
-    const inputField = element.querySelector('.p-2');
-    if (inputField.classList.contains('border')) {
-      inputField.classList.remove('border-2', 'border-green-800');
-      inputField.classList.add('border-2', 'border-red-800');
-    }
-    errorDisplay.innerText = message;
+//Set input success
+const setSuccess = (element) => {
+  const errorDisplay = element.querySelector('.error');
+  errorDisplay.innerText = "";
+  const inputField = element.querySelector('.p-2');
+  if (inputField.classList.contains('border')) {
+    inputField.classList.remove('border-2', 'border-red-800');
+    inputField.classList.add('border-2', 'border-green-800');
   }
+}
 
-  //Remove input errors
-  const unsetError = (element) => {
-    const errorDisplay = element.querySelector('.error');
-    const inputField = element.querySelector('.p-2');
-    if (inputField.classList.contains('border')) {
-      inputField.classList.remove('border-2', 'border-red-800');
-    }
-    errorDisplay.innerText = "";
+// document.addEventListener("DOMContentLoaded", () => {
+
+//   const loginForm = document.getElementById("loginForm");
+//   if (loginForm) {
+//     loginForm.addEventListener("submit", (e) => {
+
+//       validateLoginInsputs();
+//     });
+//   }
+
+//   //On click registration form
+//   const registrationForm = document.getElementById("registrationForm");
+//   // if (registrationForm) {
+//   //   registrationForm.addEventListener("submit", (e) => {
+//   //     e.preventDefault();
+//   //     validateRegisterInputs();
+//   //   });
+//   // }
+
+
+
+//   //Validate Login
+//   const validateLoginInputs = () => {
+//     //textboxes
+//     const email = document.getElementById("loginEmail");
+//     const password = document.getElementById("passwordLogin");
+//     //values
+//     const emailValue = email.value.trim();
+//     const passwordValue = password.value.trim();
+//     //Error divs
+//     const emailDiv = document.getElementById("loginEmailDiv");
+//     const passwordDiv = document.getElementById("loginPassowrdDiv");
+
+//     if (emailValue === "") {
+//       setError(emailDiv, "The email is required");
+//     } else {
+//       unsetError(emailDiv);
+//     }
+//     if (passwordValue === "") {
+//       setError(passwordDiv, "The password is required");
+//     } else {
+//       unsetError(passwordDiv)
+//     }
+//   }
+// });
+
+//Validate Register
+function validateRegisterInputs() {
+  if (!validateFirstName() || !validateSurname() || !validateEmail() || !validateAddress() || !validatePhone() || !validatePassword()  || !validateCheckbox()) {
+    return false;
+  } else {
+    return true;
   }
+};
 
-  //Set input success
-  const setSuccess = (element) => {
-    const errorDisplay = element.querySelector('.error');
-    errorDisplay.innerText = "";
-    const inputField = element.querySelector('.p-2');
-    if (inputField.classList.contains('border')) {
-      inputField.classList.remove('border-2', 'border-red-800');
-      inputField.classList.add('border-2', 'border-green-800');
-    }
+function validateFirstName() {
+  const rfirstName = document.getElementById("registrationFirstName");
+  const firstNameValue = rfirstName.value.trim();
+  const firstNameDiv = document.getElementById("firstNameDiv");
+  if (firstNameValue === "") {
+    setError(firstNameDiv, "The first name is required");
+    return false;
+  } else if (firstNameValue.length < 2) {
+    setError(firstNameDiv, "The first name must have two characters");
+    return false;
+  } else {
+    setSuccess(firstNameDiv);
+    return true;
   }
+}
 
-  //Validate Login
-  const validateLoginInputs = () => {
-    //textboxes
-    const email = document.getElementById("loginEmail");
-    const password = document.getElementById("passwordLogin");
-    //values
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
-    //Error divs
-    const emailDiv = document.getElementById("loginEmailDiv");
-    const passwordDiv = document.getElementById("loginPassowrdDiv");
-
-    if (emailValue === "") {
-      setError(emailDiv, "The email is required");
-    } else {
-      unsetError(emailDiv);
-    }
-    if (passwordValue === "") {
-      setError(passwordDiv, "The password is required");
-    } else {
-      unsetError(passwordDiv)
-    }
+function validateSurname() {
+  const surnameDiv = document.getElementById("surnameDiv");
+  const rSurname = document.getElementById("registrationSurname");
+  const surnameValue = rSurname.value.trim();
+  if (surnameValue === "") {
+    setError(surnameDiv, "The surname is required");
+    return false;
+  } else if (surnameValue.length < 2) {
+    setError(surnameDiv, "The surname must have two characters");
+    return false;
+  } else {
+    setSuccess(surnameDiv);
+    return true;
   }
+}
 
-  //Validate Register
-  const validateRegisterInputs = () => {
-    //textboxes
-    const rfirstName = document.getElementById("registrationFirstName");
-    const rSurname = document.getElementById("registrationSurname");
-    const rEmail = document.getElementById("registrationEmail");
-    const rPhone = document.getElementById("registrationPhone");
-    const rAddress = document.getElementById("registrationAddress");
-    const rPassword = document.getElementById("resgistrationPassword");
-    const rCheckbox = document.getElementById("termsCheckbox");
-    //Values
-    const firstNameValue = rfirstName.value.trim();
-    const surnameValue = rSurname.value.trim();
-    const emailValue = rEmail.value.trim();
-    const addressValue = rAddress.value.trim();
-    const phoneValue = rPhone.value.trim();
-    const passwordValue = rPassword.value.trim();
+function validateEmail() {
+  const rEmail = document.getElementById("registrationEmail");
+  const emailValue = rEmail.value.trim();
+  const emailDiv = document.getElementById("emailDiv");
+  const emailPattern = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+  if (emailValue === "") {
+    setError(emailDiv, "The email is required");
+    return false;
+  } else if (!emailPattern.test(emailValue)) {
+    setError(emailDiv, "Please check if the email address is valid");
+    return false;
+  } else {
+    setSuccess(emailDiv);
+    return true;
+  }
+}
 
-    //Error Divs
-    const firstNameDiv = document.getElementById("firstNameDiv");
-    const surnameDiv = document.getElementById("surnameDiv");
-    const emailDiv = document.getElementById("emailDiv");
-    const addressDiv = document.getElementById("addressDiv");
-    const phoneDiv = document.getElementById("phoneDiv");
-    const passwordDiv = document.getElementById("passwordDiv");
-    const checkboxDiv = document.getElementById("checkboxDiv");
+function validateAddress() {
+  const addressPattern = /^[a-zA-Z0-9 ]{10,50}$/;
+  const rAddress = document.getElementById("registrationAddress");
+  const addressDiv = document.getElementById("addressDiv");
+  const addressValue = rAddress.value.trim();
+  if (addressValue === "") {
+    setError(addressDiv, "The address is required");
+    return false;
+  } else if (!addressPattern.test(addressValue)) {
+    setError(addressDiv, "Please check if the address is valid");
+    return false;
+  } else {
+    setSuccess(addressDiv);
+    return true;
+  }
+}
 
-    //Patterns
-    const emailPattern = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
-    const phonePattern = /(9[1236][0-9]) ?([0-9]{3}) ?([0-9]{3})/;
-    const addressPattern = /^[a-zA-Z0-9]{10,50}$/;
-    const passwordPattern = /^(?=.*[a-z])(?=.*\d)[a-zA-Z\d\w\W]{8,30}$/;
+function validatePhone(){
+  const phonePattern = /(9[1236][0-9]) ?([0-9]{3}) ?([0-9]{3})/;
+  const rPhone = document.getElementById("registrationPhone");
+  const phoneValue = rPhone.value.trim();
+  const phoneDiv = document.getElementById("phoneDiv");
+  console.log("JOsé");
 
-    if (firstNameValue === "") {
-      setError(firstNameDiv, "The first name is required");
-    } else if (firstNameValue.length < 2) {
-      setError(firstNameDiv, "The first name must have two characters");
-    } else {
-      setSuccess(firstNameDiv);
-    }
+  if (phoneValue === "") {
+    setError(phoneDiv, "The phone is required");
+    return false;
+  } else if (!phonePattern.test(phoneValue)) {
+    setError(phoneDiv, "The phone number has to be Portuguese");
+    return false;
+  } else {
+    setSuccess(phoneDiv);
+    return true;
+  }
+}
 
-    if (surnameValue === "") {
-      setError(surnameDiv, "The surname is required");
-    } else if (surnameValue.length < 2) {
-      setError(surnameDiv, "The surname must have two characters");
-    } else {
-      setSuccess(surnameDiv);
-    }
+function validatePassword(){
+  const rPassword = document.getElementById("resgistrationPassword");
+  const passwordValue = rPassword.value.trim();
+  const passwordDiv = document.getElementById("passwordDiv");
+  const passwordPattern = /^(?=.*[a-z])(?=.*\d)[a-zA-Z\d\w\W]{8,30}$/;
 
-    if (emailValue === "") {
-      setError(emailDiv, "The email is required");
-    } else if (!emailPattern.test(emailValue)) {
-      setError(emailDiv, "Please check if the email address is valid");
-    } else {
-      setSuccess(emailDiv);
-    }
+  if (passwordValue === "") {
+    setError(passwordDiv, "The password is required");
+    return false;
+  } else if (!passwordPattern.test(passwordValue)) {
+    setError(passwordDiv, "The password must contain letters and numbers and 8-35 characteres");
+    return false;
+  } else {
+    setSuccess(passwordDiv);
+    return true;
+  }
+}
 
-    if (addressValue === "") {
-      setError(addressDiv, "The address is required");
-    } else if (!addressPattern.test(addressValue)) {
-      setError(addressDiv, "Please check if the address is valid");
-    } else {
-      setSuccess(addressDiv);
-    }
+function validateCheckbox(){
+  const rCheckbox = document.getElementById("termsCheckbox");
+  const checkboxDiv = document.getElementById("checkboxDiv");
 
-    if (phoneValue === "") {
-      setError(phoneDiv, "The phone is required");
-    } else if (!phonePattern.test(phoneValue)) {
-      setError(phoneDiv, "The phone number has to be Portuguese");
-    } else {
-      setSuccess(phoneDiv);
-    }
-
-    if (passwordValue === "") {
-      setError(passwordDiv, "The password is required");
-    } else if (!passwordPattern.test(passwordValue)) {
-      setError(passwordDiv, "The password must contain letters and numbers and 8-35 characteres");
-    } else {
-      setSuccess(passwordDiv);
-    }
-
-    if (!rCheckbox.checked) {
-      setError(checkboxDiv, "You have to accept the terms and conditions");
-    } else {
-      setSuccess(checkboxDiv);
-    }
-
-  };
-});
+  if (!rCheckbox.checked) {
+    setError(checkboxDiv, "You have to accept the terms and conditions");
+    return false;
+  } else {
+    setSuccess(checkboxDiv);
+    return true;
+  }
+}
 
 //Change password Visibility
 function togglePasswordVisibility() {
@@ -191,7 +230,7 @@ const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 let moonIcon, sunIcon;
 
-window.onload = function() {
+window.onload = function () {
   moonIcon = document.querySelector('#moon');
   sunIcon = document.querySelector('#sun');
   themeCheck();

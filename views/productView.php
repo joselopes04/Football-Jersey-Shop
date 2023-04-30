@@ -6,30 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Jersey Shop</title>
-    <link rel="icon" type="image/x-icon" href="images/FJSlogo.png">
-    <link rel="stylesheet" href="dist/output.css">
-    <script src="views/main.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/FJSlogo.png">
+    <link rel="stylesheet" href="../dist/output.css">
+    <script src="../views/main.js"></script>
 </head>
-<?php include 'navbar.php' ?>
+<?php include 'navbar.php';?>
 
 <body class="bg-gray-50 dark:bg-gray-800">
     <div class="ml-5 my-5">
         <div class="container md:grid md:grid-cols-2 gap-4 mb-2">
             <!-- Product Image -->
             <div>
-                <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="Product Image" class="mx-auto w-5/6">
+                <img src="<?php echo route($product->ImagePath);?>" alt="Product Image" class="mx-auto w-5/6">
                 <div class="grid grid-cols-5 gap-4 mt-4">
-                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border border-blue-800">
-                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border">
-                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border">
-                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border">
-                    <img src="images/jerseys/portugal/benfica/benfica2223.png" alt="" class="w-full cursor-pointer border">
+                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border border-blue-800">
+                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border">
+                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border">
+                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border">
+                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border">
                 </div>
             </div>
             <!-- Product Image End -->
             <!-- Product Content -->
             <div class="mr-10">
-                <h2 class="text-3xl font-medium mb-2 dark:text-white">SL Benfica Jersey 2022/2023</h2>
+                <h2 class="text-3xl font-medium mb-2 dark:text-white"><?php echo($product->Name);?></h2>
                 <div class="flex">
                     <div class="flex gap-1 text-yellow-400">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -60,34 +60,34 @@
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Club:</span>
-                    <span class="dark:text-white">Benfica</span>
+                    <span class="dark:text-white"><?php echo($club->Name);?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Season:</span>
-                    <span class="dark:text-white">2022/2023</span>
+                    <span class="dark:text-white"><?php echo($product->Year);?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Type of kit:</span>
-                    <span class="dark:text-white">Home</span>
+                    <span class="dark:text-white"><?php echo($typeOfKit->Name);?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">League:</span>
-                    <span class="dark:text-white">Liga Portugal BWIN</span>
+                    <span class="dark:text-white"><?php echo($league->Name);?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Brand:</span>
-                    <span class="dark:text-white">Adidas</span>
+                    <span class="dark:text-white"><?php echo($brand->Name);?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Material:</span>
-                    <span class="dark:text-white">Polyester</span>
+                    <span class="dark:text-white"><?php echo($product->Material);?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-2xl dark:text-gray-200">Price:</span>
-                    <span class="font-bold  text-2xl dark:text-white">50€</span>
+                    <span class="font-bold  text-2xl dark:text-white"><?php echo($product->Price);?>€</span>
                 </div>
                 <div class="my-1">
-                    <span class="text-sm dark:text-white">Put on the classic red of Sport Lisboa Benfica. The Benfica home jersey maintains football tradition with a timeless design of thin stripes, inspired by a bridge that stretches across the Lisbon horizon since 1966.</span>
+                    <span class="text-sm dark:text-white"><?php echo($product->Description);?></span>
                 </div>
                 <div class="my-1">
                     <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200 mb-3">Availabale Sizes:</h3>
@@ -137,9 +137,7 @@
         </div>
         <div class="dark:text-white mx-4">
             <h3 class="text-2xl font-medium mt-5 mb-4">History</h3>
-            <p class="tracking-wide leading-normal indent-8 mb-6" >SL Benfica showcased remarkable performance domestically and internationally in the 2022/2023 season, demonstrating a cohesive, offensive style of play, achieving consistency, and reaching the quarter finals of the UEFA Champions League.</p>
-            <p class="tracking-wide leading-normal indent-8 mb-4">In the 2022/2023 season, SL Benfica had a remarkable performance in various competitions, both domestically and internationally. Under the leadership of their coach, the team displayed an offensive and cohesive style of play, which garnered much praise. In the Portuguese league, the Primeira Liga, Benfica was involved in a fierce battle for the title with their eternal rivals, FC Porto and Sporting CP. The team demonstrated an impressive consistency, achieving important victories and displaying attractive and efficient football.</p>
-            <p class="tracking-wide leading-normal indent-8">In European competitions, Benfica had a solid campaign in the UEFA Champions League. The team reached the knockout stages and faced tough opponents, but showed determination and fighting spirit. Even though they were eliminated from the competition, Benfica's performance was highly praised by experts. In the Portuguese Cup and League Cup, Benfica continued to show their strength and commitment to success, reaching the final stages of both competitions and fighting for every trophy. Overall, the 2022/2023 season for Benfica was marked by a good performance on several fronts. The players and coaching staff demonstrated great teamwork and dedication, which translated into positive results and the consolidation of the club as one of the main forces in Portuguese and European football.</p>
+            <p class="tracking-wide leading-normal indent-8 mb-6" ><?php echo($product->History);?></p>
         </div>
 
     </div>

@@ -35,4 +35,5 @@ try {
 catch (Exception $e) {
     header('HTTP/1.1 404 Not Found', true, 404);
     echo '<h1 style="text-align: center;">Not Found!</h1>';
+    echo $e;
 }

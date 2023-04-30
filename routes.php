@@ -15,16 +15,6 @@ $router->get('terms', function() {
     require 'controllers/terms.php';
 });
 
-/* SignIn */
-$router->get('login', function() {
-    require 'controllers/login.php';
-});
-
-/* Login */
-$router->get('register', function() {
-    require 'controllers/register.php';
-});
-
 /*  clubs View */
 $router->get('league/(\d+)', function($id) {
     require 'controllers/clubs.show.php';
@@ -36,6 +26,32 @@ $router->get('club/(\d+)', function($id) {
 });
 
 /* Product View */
-$router->get('productView', function() {
-    require 'controllers/productView.php';
+$router->get('product/(\d+)', function($id) {
+    require 'controllers/product.php';
+});
+
+// Deal with the User
+/* Log in */
+$router->get('loginView', function() {
+    require 'controllers/login.view.php';
+});
+
+// Login
+$router->post('login', function() {
+    require 'controllers/login.php';
+});
+
+/* Register */
+$router->get('register', function() {
+    require 'controllers/register.php';
+});
+
+/* Create User  */
+$router->post('createUser', function() {
+    require 'controllers/createUser.php';
+});
+
+/* User Account */
+$router->get('userAccount', function() {
+    require 'controllers/userAccount.php';
 });

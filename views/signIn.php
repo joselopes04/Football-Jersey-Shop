@@ -21,7 +21,7 @@
         <h2 class="font-bold text-2xl text-blue-800 dark:text-white">Login</h2>
         <p class="text-xs mt-4 text-blue-800 dark:text-white">If you are already a member, please log in.</p>
         <!-- form -->
-        <form id="loginForm" action="" method="post" class="flex flex-col gap-4">
+        <form id="loginForm" action="<?php echo route("login"); ?>" method="post" class="flex flex-col gap-4">
           <div id="loginEmailDiv">
             <input id="loginEmail" class="p-2 mt-8 rounded-xl border w-full focus:outline-none focus:ring focus:border-blue-800" type="email" name="email" placeholder="Email">
             <div class="error text-xs text-red-800"></div>
@@ -39,7 +39,7 @@
             </div>
             <div class="error text-xs text-red-800"></div>
           </div>
-          <button class="bg-blue-800 rounded-xl text-white py-2 hover:scale-105 duration-300">Login</button>
+          <button name="submit" type="submit" class="bg-blue-800 rounded-xl text-white py-2 hover:scale-105 duration-300">Login</button>
         </form>
         <!-- form end-->
         <div class="mt-6 grid grid-cols-3 items-center text-gray-400">
