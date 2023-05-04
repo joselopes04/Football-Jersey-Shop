@@ -8,28 +8,35 @@
     <title>Football Jersey Shop</title>
     <link rel="icon" type="image/x-icon" href="../images/FJSlogo.png">
     <link rel="stylesheet" href="../dist/output.css">
-    <script src="../views/main.js"></script>
 </head>
-<?php include 'navbar.php';?>
+<?php include 'navbar.php'; ?>
 
 <body class="bg-gray-50 dark:bg-gray-800">
     <div class="ml-5 my-5">
         <div class="container md:grid md:grid-cols-2 gap-4 mb-2">
             <!-- Product Image -->
             <div>
-                <img src="<?php echo route($product->ImagePath);?>" alt="Product Image" class="mx-auto w-5/6">
+                <img id="mainImg" src="<?php echo route($product->ImagePath); ?>" alt="Product Image" class="mx-auto w-5/6">
                 <div class="grid grid-cols-5 gap-4 mt-4">
-                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border border-blue-800">
-                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border">
-                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border">
-                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border">
-                    <img src="<?php echo route($product->ImagePath);?>" alt="" class="w-full cursor-pointer border">
+                    <img onclick="smallImg0()" src="<?php echo route($product->ImagePath); ?>" alt="" class="w-full cursor-pointer border-4 border-blue-800 smallImg">
+                    <?php if (isset($product->ImagePath2)) { ?>
+                        <img onclick="smallImg1()" src="<?php echo route($product->ImagePath2); ?>" alt="" class="w-full cursor-pointer border smallImg">
+                    <?php } ?>
+                    <?php if (isset($product->ImagePath3)) { ?>
+                        <img onclick="smallImg2()" src="<?php echo route($product->ImagePath3); ?>" alt="" class="w-full cursor-pointer border smallImg">
+                    <?php } ?>
+                    <?php if (isset($product->ImagePath4)) { ?>
+                        <img onclick="smallImg3()" src="<?php echo route($product->ImagePath4); ?>" alt="" class="w-full cursor-pointer border smallImg">
+                    <?php } ?>
+                    <?php if (isset($product->ImagePath5)) { ?>
+                        <img onclick="smallImg4()" src="<?php echo route($product->ImagePath5); ?>" alt="" class="w-full cursor-pointer border smallImg">
+                    <?php } ?>
                 </div>
             </div>
             <!-- Product Image End -->
             <!-- Product Content -->
             <div class="mr-10">
-                <h2 class="text-3xl font-medium mb-2 dark:text-white"><?php echo($product->Name);?></h2>
+                <h2 class="text-3xl font-medium mb-2 dark:text-white"><?php echo ($product->Name); ?></h2>
                 <div class="flex">
                     <div class="flex gap-1 text-yellow-400">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -60,34 +67,34 @@
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Club:</span>
-                    <span class="dark:text-white"><?php echo($club->Name);?></span>
+                    <span class="dark:text-white"><?php echo ($club->Name); ?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Season:</span>
-                    <span class="dark:text-white"><?php echo($product->Year);?></span>
+                    <span class="dark:text-white"><?php echo ($product->Year); ?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Type of kit:</span>
-                    <span class="dark:text-white"><?php echo($typeOfKit->Name);?></span>
+                    <span class="dark:text-white"><?php echo ($typeOfKit->Name); ?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">League:</span>
-                    <span class="dark:text-white"><?php echo($league->Name);?></span>
+                    <span class="dark:text-white"><?php echo ($league->Name); ?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Brand:</span>
-                    <span class="dark:text-white"><?php echo($brand->Name);?></span>
+                    <span class="dark:text-white"><?php echo ($brand->Name); ?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-gray-800 dark:text-gray-200">Material:</span>
-                    <span class="dark:text-white"><?php echo($product->Material);?></span>
+                    <span class="dark:text-white"><?php echo ($product->Material); ?></span>
                 </div>
                 <div class="my-1">
                     <span class="font-medium text-2xl dark:text-gray-200">Price:</span>
-                    <span class="font-bold  text-2xl dark:text-white"><?php echo($product->Price);?>€</span>
+                    <span class="font-bold  text-2xl dark:text-white"><?php echo ($product->Price); ?>€</span>
                 </div>
                 <div class="my-1">
-                    <span class="text-sm dark:text-white"><?php echo($product->Description);?></span>
+                    <span class="text-sm dark:text-white"><?php echo ($product->Description); ?></span>
                 </div>
                 <div class="my-1">
                     <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200 mb-3">Availabale Sizes:</h3>
@@ -137,11 +144,12 @@
         </div>
         <div class="dark:text-white mx-4">
             <h3 class="text-2xl font-medium mt-5 mb-4">History</h3>
-            <p class="tracking-wide leading-normal indent-8 mb-6" ><?php echo($product->History);?></p>
+            <p class="tracking-wide leading-normal indent-8 mb-6"><?php echo ($product->History); ?></p>
         </div>
 
     </div>
 </body>
+<script src="../views/main.js"></script>
 <?php include 'footer.php' ?>
 
 </html>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Jersey Shop</title>
-    <link rel="icon" type="image/x-icon" href="images/FJSlogo.png">
+    <link rel="icon" type="image/x-icon" href="../images/FJSlogo.png">
     <link rel="stylesheet" href="../dist/output.css">
     <script src="../views/main.js"></script>
 </head>
@@ -36,9 +36,9 @@
                     <div>
                         <h3 class="text-xl dark:text-white mt-2">Price</h3>
                         <div class="mt-2 flex items-center">
-                            <input type="number" class="w-full p-2 mt-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800" type="text" name="minPrice" placeholder="Min Price">
+                            <input type="number" class="w-full p-2 mt-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" type="text" name="minPrice" placeholder="Min Price">
                             <span class="mx-3 dark:text-white">-</span>
-                            <input type="number" class="w-full p-2 mt-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800" type="text" name="maxPrice" placeholder="Max Price">
+                            <input type="number" class="w-full p-2 mt-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" type="text" name="maxPrice" placeholder="Max Price">
                         </div>
                     </div>
                     <div>
@@ -69,7 +69,7 @@
             <!-- Products -->
            <?php foreach ($products as $product) { ?>
             <div class="shadow-lg rounded-lg">
-                <a href="">
+                <a href="<?php echo route('product/' . $product->ID);?>">
                     <img src="<?php echo route($product->ImagePath);?>" alt="">
                 </a>
                 <div class="p-5">
@@ -86,7 +86,7 @@
                         <div class="border-2 border-gray-300 dark:text-white rounded-md text-xs px-2 py-1 mr-2">XS</div>
                     </div>
                     <div class="flex flex-col xl:flex-row justify-between">
-                        <a class="flex flex-row justify-center px-3 py-2 my-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl w-36 text-sm text-white hover:scale-105 duration-300">
+                        <a class="flex flex-row justify-center px-3 py-2 my-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl w-36 text-sm text-white hover:scale-105 duration-300 mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                             </svg>Add to cart

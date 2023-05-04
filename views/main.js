@@ -1,12 +1,11 @@
-//On click login form
-
 //Set input errors
 const setError = (element, message) => {
   const errorDisplay = element.querySelector('.error');
   const inputField = element.querySelector('.p-2');
   if (inputField.classList.contains('border')) {
-    inputField.classList.remove('border-2', 'border-green-800');
-    inputField.classList.add('border-2', 'border-red-800');
+    inputField.classList.remove('border-2', 'border-green-800', 'dark:border-green-800', 'dark:border-gray-600');
+    inputField.classList.add('border-2', 'border-red-800', 'dark:border-red-800');
+
   }
   errorDisplay.innerText = message;
 }
@@ -16,7 +15,7 @@ const unsetError = (element) => {
   const errorDisplay = element.querySelector('.error');
   const inputField = element.querySelector('.p-2');
   if (inputField.classList.contains('border')) {
-    inputField.classList.remove('border-2', 'border-red-800');
+    inputField.classList.remove('border-2', 'border-red-800', 'dark:border-red-800');
   }
   errorDisplay.innerText = "";
 }
@@ -27,60 +26,51 @@ const setSuccess = (element) => {
   errorDisplay.innerText = "";
   const inputField = element.querySelector('.p-2');
   if (inputField.classList.contains('border')) {
-    inputField.classList.remove('border-2', 'border-red-800');
-    inputField.classList.add('border-2', 'border-green-800');
+    inputField.classList.remove('border-2', 'border-red-800', 'dark:border-red-800', 'dark:border-gray-600');
+    inputField.classList.add('border-2', 'border-green-800', 'dark:border-green-800');
   }
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
+//Validate Login
+function validateLoginInputs() {
 
-//   const loginForm = document.getElementById("loginForm");
-//   if (loginForm) {
-//     loginForm.addEventListener("submit", (e) => {
+  if (!validateEmailLogin() || !validatePasswordLogin()) {
+    return false;
+  } else {
+    return true;
+  }
+}
 
-//       validateLoginInsputs();
-//     });
-//   }
+function validateEmailLogin() {
+  const emailDiv = document.getElementById("loginEmailDiv");
+  const email = document.getElementById("loginEmail");
+  const emailValue = email.value.trim();
+  if (emailValue === "") {
+    setError(emailDiv, "The email is required");
+    return false;
+  } else {
+    unsetError(emailDiv);
+    return true;
+  }
+}
 
-//   //On click registration form
-//   const registrationForm = document.getElementById("registrationForm");
-//   // if (registrationForm) {
-//   //   registrationForm.addEventListener("submit", (e) => {
-//   //     e.preventDefault();
-//   //     validateRegisterInputs();
-//   //   });
-//   // }
+function validatePasswordLogin() {
+  const password = document.getElementById("passwordLogin");
+  const passwordValue = password.value.trim();
+  const passwordDiv = document.getElementById("loginPassowrdDiv");
 
-
-
-//   //Validate Login
-//   const validateLoginInputs = () => {
-//     //textboxes
-//     const email = document.getElementById("loginEmail");
-//     const password = document.getElementById("passwordLogin");
-//     //values
-//     const emailValue = email.value.trim();
-//     const passwordValue = password.value.trim();
-//     //Error divs
-//     const emailDiv = document.getElementById("loginEmailDiv");
-//     const passwordDiv = document.getElementById("loginPassowrdDiv");
-
-//     if (emailValue === "") {
-//       setError(emailDiv, "The email is required");
-//     } else {
-//       unsetError(emailDiv);
-//     }
-//     if (passwordValue === "") {
-//       setError(passwordDiv, "The password is required");
-//     } else {
-//       unsetError(passwordDiv)
-//     }
-//   }
-// });
+  if (passwordValue === "") {
+    setError(passwordDiv, "The password is required");
+    return false;
+  } else {
+    unsetError(passwordDiv);
+    return true;
+  }
+}
 
 //Validate Register
 function validateRegisterInputs() {
-  if (!validateFirstName() || !validateSurname() || !validateEmail() || !validateAddress() || !validatePhone() || !validatePassword()  || !validateCheckbox()) {
+  if (!validateFirstName() || !validateSurname() || !validateEmail() || !validateAddress() || !validatePhone() || !validatePassword() || !validateCheckbox()) {
     return false;
   } else {
     return true;
@@ -153,12 +143,11 @@ function validateAddress() {
   }
 }
 
-function validatePhone(){
+function validatePhone() {
   const phonePattern = /(9[1236][0-9]) ?([0-9]{3}) ?([0-9]{3})/;
   const rPhone = document.getElementById("registrationPhone");
   const phoneValue = rPhone.value.trim();
   const phoneDiv = document.getElementById("phoneDiv");
-  console.log("JOsé");
 
   if (phoneValue === "") {
     setError(phoneDiv, "The phone is required");
@@ -172,7 +161,7 @@ function validatePhone(){
   }
 }
 
-function validatePassword(){
+function validatePassword() {
   const rPassword = document.getElementById("resgistrationPassword");
   const passwordValue = rPassword.value.trim();
   const passwordDiv = document.getElementById("passwordDiv");
@@ -190,7 +179,7 @@ function validatePassword(){
   }
 }
 
-function validateCheckbox(){
+function validateCheckbox() {
   const rCheckbox = document.getElementById("termsCheckbox");
   const checkboxDiv = document.getElementById("checkboxDiv");
 
@@ -201,6 +190,66 @@ function validateCheckbox(){
     setSuccess(checkboxDiv);
     return true;
   }
+}
+
+//Edit profile
+function editProfile() {
+  console.log("editar");
+  //Inputs
+  let inputFirstName = document.getElementById("registrationFirstName");
+  let inputSurname = document.getElementById("registrationSurname");
+  let inputEmail = document.getElementById("registrationEmail");
+  let inputAddress = document.getElementById("registrationAddress");
+  let inputPhone = document.getElementById("registrationPhone");
+
+  //Buttons
+  let editButton = document.getElementById("editButton");
+  let saveButton = document.getElementById("saveButton");
+  let deleteButon = document.getElementById("deleteButon");
+  let cancelButon = document.getElementById("cancelButon");
+  let logoutButon = document.getElementById("logoutButon");
+
+  editButton.classList.add("hidden");
+  deleteButon.classList.remove("hidden");
+  saveButton.classList.remove("hidden");
+  cancelButon.classList.remove("hidden");
+  logoutButon.classList.add("hidden");
+
+  inputFirstName.removeAttribute("disabled");
+  inputSurname.removeAttribute("disabled");
+  inputEmail.removeAttribute("disabled");
+  inputAddress.removeAttribute("disabled");
+  inputPhone.removeAttribute("disabled");
+}
+
+function cancelEditProfile(event) {
+  console.log("cancelar");
+  event.preventDefault();
+  //Inputs
+  let inputFirstName = document.getElementById("registrationFirstName");
+  let inputSurname = document.getElementById("registrationSurname");
+  let inputEmail = document.getElementById("registrationEmail");
+  let inputAddress = document.getElementById("registrationAddress");
+  let inputPhone = document.getElementById("registrationPhone");
+
+  //Buttons
+  let editButton = document.getElementById("editButton");
+  let saveButton = document.getElementById("saveButton");
+  let deleteButon = document.getElementById("deleteButon");
+  let cancelButon = document.getElementById("cancelButon");
+  let logoutButon = document.getElementById("logoutButon");
+
+  editButton.classList.remove("hidden");
+  deleteButon.classList.add("hidden");
+  saveButton.classList.add("hidden");
+  cancelButon.classList.add("hidden");
+  logoutButon.classList.remove("hidden");
+
+  inputFirstName.setAttribute("disabled", true);
+  inputSurname.setAttribute("disabled", true);
+  inputEmail.setAttribute("disabled", true);
+  inputAddress.setAttribute("disabled", true);
+  inputPhone.setAttribute("disabled", true);
 }
 
 //Change password Visibility
@@ -219,11 +268,19 @@ function togglePasswordVisibility() {
 
 //Hamburguer menu
 function hamburguerClicked() {
-  var mobileMenu = document.getElementById("mobileMenu");
+  let mobileMenu = document.getElementById("mobileMenu");
   mobileMenu.classList.toggle("hidden");
   mobileMenu.classList.toggle("block");
 }
 
+function dropdwonClicked() {
+  let dropdownList = document.getElementById("dropdownList");
+  let dropdownList2 = document.getElementById("dropdownList2");
+  dropdownList.classList.toggle("hidden");
+  dropdownList2.classList.toggle("hidden");
+}
+
+// DARK MODE
 // Theme Vars
 const userTheme = localStorage.getItem("theme");
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -270,3 +327,74 @@ document.addEventListener('DOMContentLoaded', function () {
     themeSwitch();
   });
 });
+
+//Product View Images
+let mainImg = document.getElementById("mainImg");
+let smallImgs = document.getElementsByClassName("smallImg");
+
+let smallImgsArray = Array.from(smallImgs);
+
+
+function smallImg0() {
+  mainImg.src = smallImgs[0].src;
+  smallImgsArray.forEach(smallImg => {
+    smallImg.classList.remove("border-4", "border-blue-800");
+  });
+  smallImgs[0].classList.add("border-4", "border-blue-800");
+}
+function smallImg1() {
+  mainImg.src = smallImgs[1].src;
+  smallImgsArray.forEach(smallImg => {
+    smallImg.classList.remove("border-4", "border-blue-800");
+  });
+  smallImgs[1].classList.add("border-4", "border-blue-800");
+}
+function smallImg2() {
+  mainImg.src = smallImgs[2].src;
+  smallImgsArray.forEach(smallImg => {
+    smallImg.classList.remove("border-4", "border-blue-800");
+  });
+  smallImgs[2].classList.add("border-4", "border-blue-800");
+}
+function smallImg3() {
+  mainImg.src = smallImgs[3].src;
+  smallImgsArray.forEach(smallImg => {
+    smallImg.classList.remove("border-4", "border-blue-800");
+  });
+  smallImgs[3].classList.add("border-4", "border-blue-800");
+}
+function smallImg4() {
+  mainImg.src = smallImgs[4].src;
+  smallImgsArray.forEach(smallImg => {
+    smallImg.classList.remove("border-4", "border-blue-800");
+  });
+  smallImgs[4].classList.add("border-4", "border-blue-800");
+}
+
+const output = document.querySelector("#imagesPreview")
+const input = document.querySelector("#imagesInput")
+let imagesArray = []
+
+input.addEventListener("change", () => {
+  const files = input.files
+  for (let i = 0; i < files.length; i++) {
+    imagesArray.push(files[i])
+  }
+  displayImages()
+})
+
+function displayImages() {
+  let images = ""
+  imagesArray.forEach((image, index) => {
+    images += `<div class="image">
+                <img src="${URL.createObjectURL(image)}" alt="image">
+                <span onclick="deleteImage(${index})">&times;</span>
+              </div>`
+  })
+  output.innerHTML = images
+}
+
+function deleteImage(index) {
+  imagesArray.splice(index, 1)
+  displayImages()
+}

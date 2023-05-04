@@ -7,6 +7,10 @@ class Product
   public $ID;
   public $Name;
   public $ImagePath;
+  public $ImagePath2;
+  public $ImagePath3;
+  public $ImagePath4;
+  public $ImagePath5;
   public $Price;
   public $Description;
   public $Material;

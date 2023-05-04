@@ -16,7 +16,7 @@ if (isset($_POST['password'])) {
   
     if ($_POST['password'] && password_verify($_POST['password'], $user->Password)) {
         session_start();
-        $_SESSION['userId'] = $user->Id;
+        $_SESSION['userId'] = $user->ID;
         $_SESSION['firstName'] = $user->FirstName;
         $_SESSION['surname'] = $user->Surname;
         $_SESSION['email'] = $user->Email;
@@ -26,6 +26,4 @@ if (isset($_POST['password'])) {
     } else {
         redirect('loginView');
     }
-
-  
 }

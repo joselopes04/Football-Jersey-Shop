@@ -23,28 +23,28 @@
                 <!-- form -->
                 <form id="registrationForm" action="<?php echo route("createUser"); ?>" method="post" onsubmit="return validateRegisterInputs()" class="flex flex-col gap-4">
                     <div id="firstNameDiv">
-                        <input id="registrationFirstName" class="p-2 mt-8 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800" type="text" name="FirstName" placeholder="First name(s)">
+                        <input id="registrationFirstName" class="p-2 mt-8 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" type="text" name="FirstName" placeholder="First name(s)">
                         <div class="error text-xs text-red-800"></div>
                     </div>
                     <div id="surnameDiv">
-                        <input id="registrationSurname" class="p-2 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800" type="text" name="Surname" placeholder="Surname(s)">
+                        <input id="registrationSurname" class="p-2 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" type="text" name="Surname" placeholder="Surname(s)">
                         <div class="error text-xs text-red-800"></div>
                     </div>
                     <div id="emailDiv">
-                        <input id="registrationEmail" class="p-2 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800" type="email" name="Email" placeholder="Email">
+                        <input id="registrationEmail" class="p-2 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" type="email" name="Email" placeholder="Email">
                         <div class="error text-xs text-red-800"></div>
                     </div>
                     <div id="addressDiv">
-                        <input id="registrationAddress" class="p-2 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800" type="text" name="Address" placeholder="Address">
+                        <input id="registrationAddress" class="p-2 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" type="text" name="Address" placeholder="Address">
                         <div class="error text-xs text-red-800"></div>
                     </div>
                     <div id="phoneDiv">
-                        <input id="registrationPhone" class="p-2 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800" type="number" name="Phone" placeholder="Phone number">
+                        <input id="registrationPhone" class="p-2 rounded-xl w-full border focus:outline-none focus:ring focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" type="number" name="Phone" placeholder="Phone number">
                         <div class="error text-xs text-red-800"></div>
                     </div>
                     <div id="passwordDiv">
                         <div class="relative">
-                            <input id="resgistrationPassword" class="p-2 rounded-xl border w-full focus:outline-none focus:ring focus:border-blue-800" type="password" name="Password" placeholder="Password">
+                            <input id="resgistrationPassword" class="p-2 rounded-xl border w-full focus:outline-none focus:ring focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" type="password" name="Password" placeholder="Password">
                             <svg id="tooglePassword" onclick="togglePasswordVisibility()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2" viewBox="0 0 16 16">
                                 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
@@ -62,12 +62,12 @@
                         </div>
                         <div class="error text-xs text-red-800"></div>
                     </div>
-                    <button name="submit" type="submit" class="bg-blue-800 rounded-xl text-white py-2 hover:scale-105 duration-300">Register</button>
+                    <button type="submit" class="bg-blue-800 rounded-xl text-white py-2 hover:scale-105 duration-300">Register</button>
                 </form>
                 <!-- form end-->
                 <div class="mt-3 text-xs flex justify-between items-center text-blue-800 ">
                     <p class="dark:text-white">Already have an account?</p>
-                    <a href="<?php echo route("loginView"); ?>"><button href="index.php" class="py-2 px-3 bg-white border rounded-xl hover:scale-110 duration-300">Do the Login</button></a>
+                    <a href="<?php echo route("loginView"); ?>"><button class="py-2 px-3 bg-white border rounded-xl hover:scale-110 duration-300">Do the Login</button></a>
                 </div>
             </div>
             <!-- image -->
