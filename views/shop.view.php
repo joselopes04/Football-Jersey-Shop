@@ -18,7 +18,7 @@
     <h2 class="text-center text-xl dark:text-white mb-4">Products: <?php echo   ($numberProducts[0]->Count);?></h2>
         <div class="grid grid-flow grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 mx-5">
             <!-- Shop Filters -->
-            <div class="row-span-2 mx-2 px-4 pb-6 shadow rounded">
+            <div class="row-span-1 mx-2 px-4 pb-6 shadow rounded">
                 <div class="divide-y divide-gray-200 space-y-5">
                     <div class="mt-4">
                         <h3 class="text-xl dark:text-white">Brands</h3>

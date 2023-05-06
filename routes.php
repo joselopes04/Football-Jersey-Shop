@@ -74,11 +74,16 @@ $router->patch('updateUser/(\d+)', function($id) {
 
 /* Delete User  */
 $router->delete('deleteUser/(\d+)', function($id) {
-    require 'controllers/deleteUser.php';
+    require 'controllers/user/delete.php';
 });
 
 //Deal with the products
-/* Delete User  */
+/* Create Product  */
 $router->post('createProduct', function() {
-    require 'ccontrollers\products\create.php';
+    require 'controllers/products/create.php';
+});
+
+/* Delete Product  */
+$router->delete('deleteProduct/(\d+)', function($id) {
+    require 'controllers/products/delete.php';
 });

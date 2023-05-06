@@ -8,4 +8,7 @@ $queryBuilder = new QueryBuilder($connection);
 
 $user = $queryBuilder->deleteById('user',$id);
 
+session_unset();
+session_destroy();
+
 redirect('loginView');

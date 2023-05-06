@@ -11,10 +11,12 @@ if (isset($_POST['password'])) {
 
     if ($user === false) {
         redirect('loginView');
+        $_SESSION['Error'] = "User not Found";
         exit();
     }
-  
+
     if ($_POST['password'] && password_verify($_POST['password'], $user->Password)) {
+        unset($_SESSION['Error']);
         session_start();
         $_SESSION['userId'] = $user->ID;
         $_SESSION['firstName'] = $user->FirstName;
@@ -25,5 +27,6 @@ if (isset($_POST['password'])) {
         redirect('userAccount');
     } else {
         redirect('loginView');
+        $_SESSION['Error'] = "Password or email Incorrect";
     }
 }

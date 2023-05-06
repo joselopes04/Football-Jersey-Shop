@@ -14,4 +14,10 @@ $queryBuilder->update('user',$id,[
     'Phone' => $_POST['Phone'],
 ]);
 
+$_SESSION['firstName'] = $_POST['FirstName'];
+$_SESSION['surname'] = $_POST['Surname'];
+$_SESSION['email'] = $_POST['Email'];
+$_SESSION['address'] = $_POST['Address'];
+$_SESSION['phone'] = $_POST['Phone'];
+
 redirect('userAccount');

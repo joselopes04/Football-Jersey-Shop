@@ -19,6 +19,7 @@ class Product
 
   //Foregin key
   public $IDBrand;
+  public $IDSeller;
   public $IDState;
   public $IDClub;
   public $IDTypeOfKit;
