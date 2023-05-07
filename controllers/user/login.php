@@ -6,15 +6,18 @@ use App\Database\QueryBuilder;
 $connection = Connection::make();
 $queryBuilder = new QueryBuilder($connection);
 
-if (isset($_POST['password'])) {
+//Check if the form is not empty
+if (isset($_POST['password']) && isset($_POST['email'])) {
     $user =  $queryBuilder->selectByColumn('user', $_POST['email'], 'email', 'App\Model\User'); // Get the user info
 
+    //Check if the user exists
     if ($user === false) {
         redirect('loginView');
         $_SESSION['Error'] = "User not Found";
         exit();
     }
 
+    //Check if the password is currect
     if ($_POST['password'] && password_verify($_POST['password'], $user->Password)) {
         unset($_SESSION['Error']);
         session_start();
@@ -29,4 +32,6 @@ if (isset($_POST['password'])) {
         redirect('loginView');
         $_SESSION['Error'] = "Password or email Incorrect";
     }
+}else{
+    redirect('loginView');
 }

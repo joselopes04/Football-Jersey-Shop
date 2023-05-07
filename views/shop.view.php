@@ -6,16 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Jersey Shop</title>
-    <link rel="icon" type="image/x-icon" href="../images/FJSlogo.png">
-    <link rel="stylesheet" href="../dist/output.css">
-    <script src="../views/main.js"></script>
+    <link rel="icon" type="image/x-icon" href="<?php echo route("images/FJSlogo.png")?>">
+    <link rel="stylesheet" href="<?php echo route("dist/output.css") ?>">
 </head>
 <?php include 'navbar.php' ?>
 
 <body class="bg-gray-50 dark:bg-gray-800">
-    <h2 class="text-3xl text-center dark:text-white mt-4"><?php echo($club->Name);?></h2>
+    <?php if(isset($club->Name)){ ?>
+        <h2 class="text-3xl text-center dark:text-white mt-4"><?php echo($club->Name);?></h2>
+    <?php } else{ ?>
+
+  <!-- Search form -->
+  <div class="mt-6 mx-96">
+    <h2 class="text-3xl dark:text-white mb-2">Search</h2>
+    <form action="<?php echo route("searchProduct"); ?>" method="post" >
+      <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <input type="search" name="search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="<?php echo $searchTerm ?>">
+        <button type="submit" class="absolute right-2.5 bottom-2.5 font-medium text-sm px-6 py-2  bg-blue-800 rounded-xl text-white hover:scale-105 duration-300">Search</button>
+      </div>
+    </form>
+  </div>
+   <!-- Search form End-->
+    <?php } ?>
+    
     <div id="popularProducts" class="my-5">
-    <h2 class="text-center text-xl dark:text-white mb-4">Products: <?php echo   ($numberProducts[0]->Count);?></h2>
+    <h2 class="text-center text-xl dark:text-white mb-4">Products: <?php if(isset($numberProducts[0]->Count)){echo ($numberProducts[0]->Count);}else{ echo $numberOfResults;}  
+    ?></h2>
         <div class="grid grid-flow grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 mx-5">
             <!-- Shop Filters -->
             <div class="row-span-1 mx-2 px-4 pb-6 shadow rounded">
@@ -27,7 +49,7 @@
                             <div class="flex items-center ml-3 dark:text-white">
                 
                                 <input type="checkbox" id="category-<?php echo $id ?>">
-                                <label class="ml-2 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2" for="category-<?php echo $id ?>"><?php echo($brand->Name);?></label>
+                                <label class="ml-2 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2" for="category-<?php echo $id ?>"><?php if(isset($brand->Name)){echo($brand->Name);}else{ echo ($names);} ?></label>
                                 <div class="ml-auto text-gray-600 text-sm">(<?php echo($brand->Count);?>)</div>
                             </div>
                         </div>
@@ -103,6 +125,7 @@
             <?php } ?>
         </div>
     </div>
+    <script src="<?php echo route("views/main.js")?>"></script>
 </body>
 <?php include 'footer.php' ?>
 

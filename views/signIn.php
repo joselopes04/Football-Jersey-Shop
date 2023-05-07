@@ -8,7 +8,6 @@
   <title>Football Jersey Shop</title>
   <link rel="icon" type="image/x-icon" href="images/FJSlogo.png">
   <link rel="stylesheet" href="dist/output.css">
-  <script src="views/main.js"></script>
 </head>
 
 <?php include 'navbar.php' ?>
@@ -79,6 +78,7 @@
     </div>
     <!-- login container end-->
   </section>
+  <script src="views/main.js"></script>
 </body>
 
 <?php include 'footer.php' ?>

@@ -6,6 +6,7 @@ use App\Database\QueryBuilder;
 $connection = Connection::make();
 $queryBuilder = new QueryBuilder($connection);
 
+//Update user info on the database
 $queryBuilder->update('user',$id,[
     'FirstName' => $_POST['FirstName'],
     'Surname' => $_POST['Surname'],
@@ -14,6 +15,7 @@ $queryBuilder->update('user',$id,[
     'Phone' => $_POST['Phone'],
 ]);
 
+//Update session variables
 $_SESSION['firstName'] = $_POST['FirstName'];
 $_SESSION['surname'] = $_POST['Surname'];
 $_SESSION['email'] = $_POST['Email'];

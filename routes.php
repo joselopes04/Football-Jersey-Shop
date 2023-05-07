@@ -28,7 +28,7 @@ $router->get('club/(\d+)', function($id) {
 
 /* Product View */
 $router->get('product/(\d+)', function($id) {
-    require 'controllers/product.php';
+    require 'controllers/products/product.php';
 });
 
 // Login View
@@ -50,6 +50,7 @@ $router->get('register', function() {
 $router->get('userAccount', function() {
     require 'controllers/userAccount.php';
 });
+
 
 // Deal with the User
 /* Log in */
@@ -77,6 +78,7 @@ $router->delete('deleteUser/(\d+)', function($id) {
     require 'controllers/user/delete.php';
 });
 
+
 //Deal with the products
 /* Create Product  */
 $router->post('createProduct', function() {
@@ -86,4 +88,9 @@ $router->post('createProduct', function() {
 /* Delete Product  */
 $router->delete('deleteProduct/(\d+)', function($id) {
     require 'controllers/products/delete.php';
+});
+
+//Search Product
+$router->post('searchProduct', function() {
+    require 'controllers/products/search.php';
 });

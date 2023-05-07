@@ -16,6 +16,15 @@ $sellerID = $_SESSION['userId'];
 $productName = $productInfo->Name;
 $productFolder = $folder . $sellerID . '/' . $productName;
 
+//Get all the files inside the folder
+$files = scandir($productFolder);
+//Delete all files inside the folder
+foreach ($files as $file) {
+    if ($file != '.' && $file != '..') {
+        unlink($productFolder . '/' . $file);
+    }
+}
+
 //Delete the folder with the product images 
 rmdir($productFolder);
 

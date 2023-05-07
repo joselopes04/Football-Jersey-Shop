@@ -6,6 +6,7 @@ use App\Database\QueryBuilder;
 $connection = Connection::make();
 $queryBuilder = new QueryBuilder($connection);
 
+//Create the user on the database
 $queryBuilder->create('user',[
     'FirstName' => $_POST['FirstName'],
     'Surname' => $_POST['Surname'],

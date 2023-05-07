@@ -6,6 +6,7 @@ use App\Database\QueryBuilder;
 $connection = Connection::make();
 $queryBuilder = new QueryBuilder($connection);
 
+//Get product info
 $club = $queryBuilder->findById('club',$id,'App\Model\Club'); //Get club Name
 $products = $queryBuilder->filter('product',$id,'IDClub','App\Model\Product'); //Get Products from teh club
 $numberProducts = $queryBuilder->selectCount('product',$id,'IDClub','App\Model\Product'); //Get Number of products

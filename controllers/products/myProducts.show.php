@@ -11,6 +11,7 @@ use App\Database\QueryBuilder;
 $connection = Connection::make();
 $queryBuilder = new QueryBuilder($connection);
 
+//Get product info
 $typeOfKits = $queryBuilder->getAll('typeofkit','App\Model\State'); //Get all the types of kit
 $states = $queryBuilder->getAll('state','App\Model\State'); //Get all the States
 $brands = $queryBuilder->getAll('brand','App\Model\Brand'); //Get all the Brands

@@ -70,6 +70,8 @@ class QueryBuilder
         $stmt->execute(['id' => $id]);
         return $stmt->rowCount() == 1;
     }
+
+    //Add values to a table
     public function create($table, $attributes)
     {
         $stmt = $this->pdo->prepare("INSERT INTO $table (" .
@@ -77,6 +79,8 @@ class QueryBuilder
             ") VALUES (:" . implode(', :', array_keys($attributes)) . ")");
         $stmt->execute($attributes);
     }
+
+    //Update by id
     public function update($table, $id, $attributes)
     {
         $query = "UPDATE $table SET ";
@@ -88,5 +92,14 @@ class QueryBuilder
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($attributes);
         return $stmt->rowCount() == 1;
+    }
+
+    //Search on a table
+    public function searchByColumn($table, $searchTerm, $columnName, $class = "StdClass")
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM $table WHERE $columnName LIKE :searchTerm");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $class);
+        $stmt->execute(['searchTerm' => "%$searchTerm%"]);
+        return $stmt->fetchAll();
     }
 }
