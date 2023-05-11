@@ -11,7 +11,7 @@
 
 </head>
 
-<?php include 'navbar.php' ?>
+<?php include 'views/navbar.php' ?>
 
 <body>
     <section class="bg-gray-50 dark:bg-gray-800 min-h-screen flex items-center justify-center">
@@ -81,6 +81,6 @@
 
 </body>
 
-<?php include 'footer.php' ?>
+<?php include 'views/footer.php' ?>
 
 </html>

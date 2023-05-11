@@ -36,6 +36,9 @@
             <!-- Product Image End -->
             <!-- Product Content -->
             <div class="mr-10">
+                
+            <form action="<?php echo route("addToCart") ?>" method="post">
+                <input type="hidden" value="<?php echo $product->ID ?>" name="ID">
                 <h2 class="text-3xl font-medium mb-2 dark:text-white"><?php echo ($product->Name); ?></h2>
                 <div class="flex">
                     <div class="flex gap-1 text-yellow-400">
@@ -94,6 +97,7 @@
                     <span class="font-bold  text-2xl dark:text-white"><?php echo ($product->Price); ?>€</span>
                 </div>
                 <div class="my-1">
+                <span class="font-medium text-lg dark:text-gray-200">Description:</span>
                     <span class="text-sm dark:text-white"><?php echo ($product->Description); ?></span>
                 </div>
                 <div class="my-1">
@@ -122,31 +126,83 @@
                     </div>
                 </div>
                 <div class="my-3">
+                    <span class="font-medium text-2xl dark:text-gray-200">Quantity:</span>
+                    <input id="registrationFirstName" class="p-2 mx-1 my-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800" type="number" name="quantity" placeholder="Ex: 2" required>
+                </div>
+                <div class="my-3">
                     <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200 mb-3">Choose a Personalization: <span class="dark:text-gray-200">(Optional)</span></h3>
                     <div class="flex flex-col lg:flex-row lg:items-center md:justify-between">
                         <div id="Personalization">
-                            <input id="registrationFirstName" class="p-2 mx-1 my-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800" type="text" name="First name" placeholder="Name">
+                            <input id="registrationFirstName" class="p-2 mx-1 my-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800" type="text" name="personalization" placeholder="Name">
                             <div class="error text-xs text-red-800"></div>
                         </div>
                         <div id="Personalization">
-                            <input id="registrationFirstName" class="p-2 mx-1 my-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800" type="number" name="First name" placeholder="Shirt Number">
+                            <input id="registrationFirstName" class="p-2 mx-1 my-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800" type="number" name="shirtNumber" placeholder="Shirt Number">
                             <div class="error text-xs text-red-800"></div>
                         </div>
-                        <p class="text-sm dark:text-white">The personalization costs an aditional 8€</p>
+                        <p class="text-sm dark:text-white">The personalization is free :)</p>
                     </div>
                 </div>
-                <a class="flex flex-row justify-center px-3 py-2 my-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl text-sm text-white hover:scale-105 duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                    </svg>Add to cart
-                </a>
+         
+                    <button class="flex flex-row justify-center px-3 py-2 my-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl text-sm text-white hover:scale-105 duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        </svg>Add to cart
+                    </button>
+
+                </form>
             </div>
         </div>
         <div class="dark:text-white mx-4">
+            <?php if(strlen($product->History)>5) {?>
             <h3 class="text-2xl font-medium mt-5 mb-4">History</h3>
             <p class="tracking-wide leading-normal indent-8 mb-6"><?php echo ($product->History); ?></p>
+            <?php } ?>
         </div>
+        <div class="flex flex-row justify-between mx-5 my-5">
+      <h2 id="popularProducts" class="text-3xl dark:text-white">Recently Viewed</h2>
+    </div>
+    <div class="grid grid-flow grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 mx-5">
+    <?php foreach ($history as $product) { ?>
+          <div class="shadow-lg rounded-lg">
+            <a href="<?php echo route('product/' . $product->ID); ?>">
+              <img src="<?php echo route($product->ImagePath); ?>" alt="">
+            </a>
+            <div class="p-5">
+              <h3 class="text-xl dark:text-white mb-2"><?php echo ($product->Name); ?></h3>
+              <div class="flex flex-row dark:text-white">
+                <h6>Price: </h6>
+                <h6><?php echo ($product->Price); ?>€</h6>
+              </div>
+              <div class="flex flex-row my-3">
+                <div class="border-2 border-gray-300 dark:text-white rounded-md text-xs px-2 py-1 mr-2">XL</div>
+                <div class="border-2 border-gray-300 dark:text-white rounded-md text-xs px-2 py-1 mr-2">L</div>
+                <div class="border-2 border-gray-300 dark:text-white rounded-md text-xs px-2 py-1 mr-2">M</div>
+                <div class="border-2 border-gray-300 dark:text-white rounded-md text-xs px-2 py-1 mr-2">S</div>
+                <div class="border-2 border-gray-300 dark:text-white rounded-md text-xs px-2 py-1 mr-2">XS</div>
+              </div>
+              <form action="<?php echo route("addToCart") ?>" method="post">
+                <input type="hidden" value="<?php echo $product->ID ?>" name="ID">
+                <div class="flex flex-col xl:flex-row justify-between">
+                  <button type="submit" class="flex flex-row justify-center px-3 py-2 my-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl w-36 text-sm text-white hover:scale-105 duration-300 mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>Add to cart
+                  </button>
+              </form>
+              <a href="<?php echo route('product/' . $product->ID); ?>" class="flex flex-row justify-center px-3 py-2 my-2 bg-gradient-to-r from-blue-800  to-blue-600 rounded-xl w-36 text-sm text-white hover:scale-105 duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+                View details
+              </a>
+            </div>
+          </div>
+      </div>
+    <?php } ?>
 
+    </div>
+    <!-- Popular Products End-->
     </div>
 </body>
 <script src="../views/main.js"></script>

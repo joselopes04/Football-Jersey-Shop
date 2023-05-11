@@ -11,4 +11,5 @@ class User
   public $Address;
   public $Phone;
   public $Password;
+  public $tmpKey;
 }

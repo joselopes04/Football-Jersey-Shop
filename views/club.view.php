@@ -17,6 +17,20 @@
         <div class="flex flex-row justify-between mx-5 mb-3">
             <h2 class="text-3xl dark:text-white"><?php echo $league->Name ?></h2>
         </div>
+        
+        <!-- Navigation -->
+        <nav class="w-full p-4 ">
+            <ol class="flex h-8 space-x-2">
+                <li class="flex items-center dark:text-white">
+                    <a href="<?php echo route('leagueView'); ?>" class="flex items-center hover:underline">Leagues</a>
+                </li>
+                <li class="flex items-center space-x-1">
+                    <span class="dark:text-gray-400">/</span>
+                </li>
+            </ol>
+        </nav>
+        <!-- Navigation END-->
+
         <!-- Single Club Info -->
         <div class="grid grid-flow grid-cols-1 md:grid-cols-4 xl:grid-cols-6 gap-10 mx-5 mt-10">
             <?php

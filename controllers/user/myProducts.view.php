@@ -19,4 +19,4 @@ $clubs = $queryBuilder->getAll('club','App\Model\Club'); //Get all the Clubs
 $numberProducts = $queryBuilder->selectCount('product',$_SESSION['userId'],'IDSeller','App\Model\Product'); //Get Number of products
 $myProducts = $queryBuilder->filter('product',$_SESSION['userId'],'IDSeller','App\Model\Product');//Get all the clubs from a league
 
-require 'views/myProducts.php';
+require 'views/user/myProducts.php';

@@ -21,6 +21,15 @@ class QueryBuilder
         return $stmt->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
+    
+    //Select all from a table
+    public function getLast4ByColumn($table, $columnName, $class = "StdClass")
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM $table ORDER BY $columnName DESC LIMIT 4");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_CLASS, $class);
+    }
+
     //Find by id on a table
     public function findById($table, $id, $class = "StdClass")
     {

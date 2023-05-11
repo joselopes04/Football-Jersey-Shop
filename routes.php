@@ -11,7 +11,7 @@ $router->get('leagueView', function() {
     require 'controllers/leagues.show.php';
 });
 
-/*  shop View */
+/*  terms and conditions View */
 $router->get('terms', function() {
     require 'controllers/terms.php';
 });
@@ -28,17 +28,12 @@ $router->get('club/(\d+)', function($id) {
 
 /* Product View */
 $router->get('product/(\d+)', function($id) {
-    require 'controllers/products/product.php';
+    require 'controllers/products/product.view.php';
 });
 
 // Login View
 $router->get('loginView', function() {
     require 'controllers/login.view.php';
-});
-
-// My products
-$router->get('myProducts', function() {
-    require 'controllers/products/myProducts.show.php';
 });
 
 /* Register */
@@ -48,11 +43,20 @@ $router->get('register', function() {
 
 /* User Account */
 $router->get('userAccount', function() {
-    require 'controllers/userAccount.php';
+    require 'controllers/user/userAccount.view.php';
 });
 
+/* Get the reset password View  */
+$router->get('resetPassword', function() {
+    require 'controllers/resetPassword.view.php';
+});
 
-// Deal with the User
+/* Get the verification code View  */
+$router->get('verificationCode', function() {
+    require 'controllers/user/verificationCode.view.php';
+});
+
+/******************* Deal with the User *******************/ 
 /* Log in */
 $router->post('login', function() {
     require 'controllers/user/login.php';
@@ -78,11 +82,50 @@ $router->delete('deleteUser/(\d+)', function($id) {
     require 'controllers/user/delete.php';
 });
 
+/* Get send the password reset email  */
+$router->patch('resetPasswordDB', function() {
+    require 'controllers/user/resetPassword.php';
+});
 
-//Deal with the products
+//Verify code
+$router->post('verifyCode', function() {
+    require 'controllers/user/verifyCode.php';
+});
+
+/* change password  */
+$router->get('changePassword', function() {
+    require 'controllers/user/changePassword.view.php';
+});
+
+/* change password DB */
+$router->post('changePasswordDB', function() {
+    require 'controllers/user/changePassword.php';
+});
+
+// My products
+$router->get('shoppingCart', function() {
+    require 'controllers/user/cart.php';
+});
+
+/******************* Deal with the products *******************/ 
+// My products
+$router->get('myProducts', function() {
+    require 'controllers/user/myProducts.view.php';
+});
+
 /* Create Product  */
 $router->post('createProduct', function() {
     require 'controllers/products/create.php';
+});
+
+/* Get the edit Product View  */
+$router->get('editProduct/(\d+)', function($id) {
+    require 'controllers/products/edit.view.php';
+});
+
+/*Edit Product  */
+$router->patch('updateProduct/(\d+)', function($id) {
+    require 'controllers/products/edit.php';
 });
 
 /* Delete Product  */
@@ -93,4 +136,14 @@ $router->delete('deleteProduct/(\d+)', function($id) {
 //Search Product
 $router->post('searchProduct', function() {
     require 'controllers/products/search.php';
+});
+
+/* Add to cart  */
+$router->post('addToCart', function() {
+    require 'controllers/products/addToCart.php';
+});
+
+/* Delete Product from teh cart  */
+$router->delete('removeFromCart/(\d+)', function($id) {
+    require 'controllers/products/removeFromCart.php';
 });

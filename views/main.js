@@ -194,7 +194,6 @@ function validateCheckbox() {
 
 //Edit profile
 function editProfile() {
-  console.log("editar");
   //Inputs
   let inputFirstName = document.getElementById("registrationFirstName");
   let inputSurname = document.getElementById("registrationSurname");
@@ -223,7 +222,6 @@ function editProfile() {
 }
 
 function cancelEditProfile(event) {
-  console.log("cancelar");
   event.preventDefault();
   //Inputs
   let inputFirstName = document.getElementById("registrationFirstName");
@@ -250,6 +248,10 @@ function cancelEditProfile(event) {
   inputEmail.setAttribute("disabled", true);
   inputAddress.setAttribute("disabled", true);
   inputPhone.setAttribute("disabled", true);
+
+  const firstNameDiv = document.getElementById("firstNameDiv");
+
+  unsetError(firstNameDiv);
 }
 
 //Change password Visibility
@@ -388,13 +390,7 @@ function displayImages() {
   imagesArray.forEach((image, index) => {
     images += `<div class="image">
                 <img src="${URL.createObjectURL(image)}" alt="image">
-                <span onclick="deleteImage(${index})">&times;</span>
               </div>`
   })
   output.innerHTML = images
-}
-
-function deleteImage(index) {
-  imagesArray.splice(index, 1)
-  displayImages()
 }

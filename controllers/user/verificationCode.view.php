@@ -5,4 +5,4 @@ if (isset($_SESSION['email'])) {
     redirect('userAccount');
 }
 
-require 'views/user/register.php';
+require 'views/user/verificationCode.php';

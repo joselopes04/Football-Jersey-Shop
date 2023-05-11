@@ -16,6 +16,7 @@ class Product
   public $Material;
   public $Year;
   public $History;
+  public $Views;
 
   //Foregin key
   public $IDBrand;

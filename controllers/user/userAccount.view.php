@@ -5,4 +5,4 @@ if (!isset($_SESSION['email'])) {
     redirect('loginView');
 }
 
-require 'views/userAccount.view.php';
+require 'views/user/userAccount.php';

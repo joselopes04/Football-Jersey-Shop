@@ -10,7 +10,7 @@
 
 <body>
     <footer class="bg-slate-200 dark:bg-gray-900">
-        <div class=" mx-4 p-4 sm:p-6">
+        <div class="w-full p-4 sm:p-6">
             <!-- Top of the footer -->
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">

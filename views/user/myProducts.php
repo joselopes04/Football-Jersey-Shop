@@ -9,13 +9,14 @@
     <link rel="icon" type="image/x-icon" href="images/FJSlogo.png">
     <link rel="stylesheet" href="dist/output.css">
 </head>
-<?php include 'navbar.php' ?>
+<?php include 'views/navbar.php' ?>
 
 <body class="bg-gray-50 dark:bg-gray-800">
     <h1 class="text-4xl mt-5 text-center dark:text-white">My Products</h1>
     <div id="popularProducts" class="my-5">
         <h2 class="text-center text-xl dark:text-white mb-4">Products: <?php echo ($numberProducts[0]->Count); ?></h2>
         <div class="grid grid-flow grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 mx-5">
+
             <!-- Add Product Form -->
             <div class="row-span-3 mx-2 px-4 pb-6 shadow rounded">
                 <form method="post" action="<?php echo route("createProduct"); ?>" enctype="multipart/form-data">
@@ -61,7 +62,6 @@
                                 <input type="text" class="w-full p-2 mt-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" type="text" name="History" placeholder="Tell the story about the season(optional)">
                             </div>
                         </div>
-
 
                         <div>
                             <h3 class="text-lg dark:text-white mt-2">Brand</h3>
@@ -116,15 +116,14 @@
                             </div>
                         </div>
                         <button href="" type="submit" class="flex flex-row justify-center px-3 py-2 my-2 bg-gradient-to-r from-green-500 to-green-700 rounded-xl w-36 text-sm text-white hover:scale-105 duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            Adicionar Produto
+                            Add Product
                         </button>
                     </div>
                 </form>
             </div>
-
             <!-- Add Product Form END -->
 
             <!-- Products -->
@@ -148,7 +147,7 @@
                         </div>
                         <div class="flex flex-col xl:flex-row justify-between">
                             <a href="<?php echo route('editProduct/' . $product->ID); ?>" class="flex flex-row justify-center px-3 py-2 my-2 bg-gradient-to-r from-blue-800  to-blue-600 rounded-xl w-36 text-sm text-white hover:scale-105 duration-300 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
                                 </svg>
                                 Edit
@@ -156,7 +155,7 @@
                             <form action="<?php echo route('deleteProduct/' . $product->ID); ?>" method="post">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="flex flex-row justify-center px-3 py-2 my-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl w-36 text-sm text-white hover:scale-105 duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                                     </svg>
                                     Delete
@@ -166,10 +165,12 @@
                     </div>
                 </div>
             <?php } ?>
+              <!-- Products End-->
+              
         </div>
     </div>
     <script src="views/main.js"></script>
 </body>
-<?php include 'footer.php' ?>
+<?php include 'views/footer.php' ?>
 
 </html>
