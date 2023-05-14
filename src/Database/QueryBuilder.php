@@ -80,6 +80,32 @@ class QueryBuilder
         return $stmt->rowCount() == 1;
     }
 
+
+    //Delete by and id and it deletes even if the it has linked foregin keys 
+    public function deleteUserById($table, $id)
+{
+    // Check if there are any related records in the "cart" table
+    $relatedCartProducts = $this->pdo->query("SELECT COUNT(*) FROM cart WHERE UserID=$id")->fetchColumn();
+    $relatedProducts = $this->pdo->query("SELECT COUNT(*) FROM product WHERE IDSeller=$id")->fetchColumn();
+
+    if ($relatedCartProducts > 0) {
+        // Delete the related records first
+        $this->pdo->exec("DELETE FROM cart WHERE UserID=$id");
+    }
+
+    if ($relatedProducts > 0) {
+        // Delete the related records first
+        $this->pdo->exec("DELETE FROM product WHERE IDSeller=$id");
+    }
+    
+    // Delete the user record
+    $stmt = $this->pdo->prepare("DELETE FROM $table WHERE id=:id");
+    $stmt->execute(['id' => $id]);
+    
+    return $stmt->rowCount() == 1;
+}
+
+
     //Add values to a table
     public function create($table, $attributes)
     {

@@ -5,6 +5,7 @@ namespace App\Model;
 class Cart
 {
     //Table columns 
+    public $ID;
     public $UserID;
     public $productID;
     public $quantity;
@@ -12,5 +13,5 @@ class Cart
     public $price;
     public $image;
     public $shirtNumber;
-    public $personalization;
+    public $Personalization;
 }

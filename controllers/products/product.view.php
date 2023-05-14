@@ -19,6 +19,16 @@ if (!isset($_SESSION['viewedProducts'])) {
     $_SESSION['viewedProducts'] = [];
 }
 
+if (isset($_SESSION['quantityErrorFlag'])) {
+    if ($_SESSION['quantityErrorFlag'] && isset($_SESSION['quantityError'])) {
+        unset($_SESSION['quantityError']);
+    }
+    unset($_SESSION['quantityErrorFlag']);
+}
+
+$_SESSION['quantityErrorFlag'] = isset($_SESSION['quantityError']);
+
+//Add the jersey to the viewd products
 if (!in_array($id, $_SESSION['viewedProducts'])) {
     array_push($_SESSION['viewedProducts'], $id);
     $updatedViews = $product->Views +1;

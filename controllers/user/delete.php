@@ -7,7 +7,7 @@ $connection = Connection::make();
 $queryBuilder = new QueryBuilder($connection);
 
 //Delete the user on the database
-$user = $queryBuilder->deleteById('user',$id);
+$user = $queryBuilder->deleteUserById('user',$id);
 
 //Delete session variables
 session_unset();

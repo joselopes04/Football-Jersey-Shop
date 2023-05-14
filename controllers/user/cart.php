@@ -14,7 +14,7 @@ if (!isset($_SESSION['email'])) {
 $id = $_SESSION['userId'];
 $totalPrice = 0;
 
-$products = $queryBuilder->filter('cart',$id,'UserID','App\Model\Cart'); //Get the products
+$products = $queryBuilder->filter('cart',$id,'UserID','App\Model\Cart'); //Get the products in the cart
 
 foreach ($products as $product ) {
     $productInfo = $queryBuilder->findById('product', $product->productID, 'App\Model\Brand');

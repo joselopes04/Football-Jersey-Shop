@@ -72,7 +72,7 @@
             </div>
             <!-- image -->
             <div class="md:block hidden w-1/2">
-                <img class="rounded-2xl" src="images/joinTheClub.jpg">
+                <img class="rounded-2xl" src="<?php echo route("images/joinTheClub.jpg") ?>">
             </div>
         </div>
         <!-- login container end-->

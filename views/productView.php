@@ -128,6 +128,11 @@
                 <div class="my-3">
                     <span class="font-medium text-2xl dark:text-gray-200">Quantity:</span>
                     <input id="registrationFirstName" class="p-2 mx-1 my-1 rounded-xl border focus:outline-none focus:ring focus:border-blue-800" type="number" name="quantity" placeholder="Ex: 2" required>
+                    <div class="error text-xs text-red-800">
+                    <?php if (isset($_SESSION["quantityError"])) { 
+                         echo $_SESSION["quantityError"];
+                         } ?>
+                        </div>
                 </div>
                 <div class="my-3">
                     <h3 class="font-medium text-lg text-gray-800 dark:text-gray-200 mb-3">Choose a Personalization: <span class="dark:text-gray-200">(Optional)</span></h3>
