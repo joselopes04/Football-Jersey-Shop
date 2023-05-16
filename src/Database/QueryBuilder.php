@@ -21,7 +21,6 @@ class QueryBuilder
         return $stmt->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
-    
     //Select all from a table
     public function getLast4ByColumn($table, $columnName, $class = "StdClass")
     {
@@ -80,7 +79,6 @@ class QueryBuilder
         return $stmt->rowCount() == 1;
     }
 
-
     //Delete by and id and it deletes even if the it has linked foregin keys 
     public function deleteUserById($table, $id)
 {
@@ -104,7 +102,6 @@ class QueryBuilder
     
     return $stmt->rowCount() == 1;
 }
-
 
     //Add values to a table
     public function create($table, $attributes)

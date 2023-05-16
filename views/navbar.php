@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="flex items-center py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">
+                    <a href="<?php echo route("nationalTeams"); ?>" class="flex items-center py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-1">
                             <path fill-rule="evenodd" d="M3 2.25a.75.75 0 01.75.75v.54l1.838-.46a9.75 9.75 0 016.725.738l.108.054a8.25 8.25 0 005.58.652l3.109-.732a.75.75 0 01.917.81 47.784 47.784 0 00.005 10.337.75.75 0 01-.574.812l-3.114.733a9.75 9.75 0 01-6.594-.77l-.108-.054a8.25 8.25 0 00-5.69-.625l-2.202.55V21a.75.75 0 01-1.5 0V3A.75.75 0 013 2.25z" clip-rule="evenodd" />
                         </svg>
@@ -47,21 +47,21 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="flex items-center py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">
+                    <a href="<?php echo route("otherClubs"); ?> " class="flex items-center py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-1">
                             <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM6.262 6.072a8.25 8.25 0 1010.562-.766 4.5 4.5 0 01-1.318 1.357L14.25 7.5l.165.33a.809.809 0 01-1.086 1.085l-.604-.302a1.125 1.125 0 00-1.298.21l-.132.131c-.439.44-.439 1.152 0 1.591l.296.296c.256.257.622.374.98.314l1.17-.195c.323-.054.654.036.905.245l1.33 1.108c.32.267.46.694.358 1.1a8.7 8.7 0 01-2.288 4.04l-.723.724a1.125 1.125 0 01-1.298.21l-.153-.076a1.125 1.125 0 01-.622-1.006v-1.089c0-.298-.119-.585-.33-.796l-1.347-1.347a1.125 1.125 0 01-.21-1.298L9.75 12l-1.64-1.64a6 6 0 01-1.676-3.257l-.172-1.03z" clip-rule="evenodd" />
                         </svg>
                         Other Clubs
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="" class="flex items-center py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0118 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-3.75 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m1.5-3.75C5.496 8.25 6 7.746 6 7.125v-1.5M4.875 8.25C5.496 8.25 6 8.754 6 9.375v1.5m0-5.25v5.25m0-5.25C6 5.004 6.504 4.5 7.125 4.5h9.75c.621 0 1.125.504 1.125 1.125m1.125 2.625h1.5m-1.5 0A1.125 1.125 0 0118 7.125v-1.5m1.125 2.625c-.621 0-1.125.504-1.125 1.125v1.5m2.625-2.625c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125M18 5.625v5.25M7.125 12h9.75m-9.75 0A1.125 1.125 0 016 10.875M7.125 12C6.504 12 6 12.504 6 13.125m0-2.25C6 11.496 5.496 12 4.875 12M18 10.875c0 .621-.504 1.125-1.125 1.125M18 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m-12 5.25v-5.25m0 5.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v-1.5c0-.621-.504-1.125-1.125-1.125M18 18.375v-5.25m0 5.25v-1.5c0-.621.504-1.125 1.125-1.125M18 13.125v1.5c0 .621.504 1.125 1.125 1.125M18 13.125c0-.621.504-1.125 1.125-1.125M6 13.125v1.5c0 .621-.504 1.125-1.125 1.125M6 13.125C6 12.504 5.496 12 4.875 12m-1.5 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M19.125 12h1.5m0 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h1.5m14.25 0h1.5" />
                         </svg>
                         Retro
                     </a>
-                </li>
+                </li> -->
             </ul>
             <ul>
                 <?php if (!isset($_SESSION['email'])) { ?>
@@ -118,9 +118,9 @@
             <ul class="grid grid-flow-col">
                 <li><a href="<?php echo route(""); ?>" class="block py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">Home</a></li>
                 <li><a href="<?php echo route("leagueView"); ?>" class="block py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">Leagues</a></li>
-                <li><a href="" class="block py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">National Teams</a></li>
-                <li><a href="" class="block py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">Other Clubs</a></li>
-                <li><a href="<?php echo route("leagueView"); ?> " class="block py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">Retro</a></li>
+                <li><a href="<?php echo route("nationalTeams"); ?>" class="block py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">National Teams</a></li>
+                <li><a href="<?php echo route("otherClubs"); ?>" class="block py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">Other Clubs</a></li>
+                <!-- <li><a href="<?php echo route("leagueView"); ?> " class="block py-navbar-item px-navbar-item hover:bg-slate-400 dark:hover:bg-slate-700 transition-all">Retro</a></li> -->
             </ul>
         </nav>
         <!-- Center Menu End-->

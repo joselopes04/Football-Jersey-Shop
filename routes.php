@@ -56,6 +56,16 @@ $router->get('verificationCode', function() {
     require 'controllers/user/verificationCode.view.php';
 });
 
+/* Get the national teams  */
+$router->get('nationalTeams', function() {
+    require 'controllers/nationalTeams.show.php';
+});
+
+/* Get the other clubs  */
+$router->get('otherClubs', function() {
+    require 'controllers/otherClubs.view.php';
+});
+
 /******************* Deal with the User *******************/ 
 /* Log in */
 $router->post('login', function() {
